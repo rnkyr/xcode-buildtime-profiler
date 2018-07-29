@@ -1,0 +1,218 @@
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script type="text/javascript">
+    $(function () {
+        Highcharts.setOptions({
+          colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
+              return {
+                  radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+                  stops: [ [0, color], [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] ]
+              };
+          })
+        });
+        Highcharts.chart({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie',
+                renderTo: 'pie-chart'
+            },
+            title: {
+                text: 'Build time per target'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                name: 'Share',
+                data: [
+                    <% @targets.each do |target| %>
+                      { name: '<%= target['name'] %>', y: <%= target['value'] %> },
+                    <% end %>
+                ]
+            }]
+        });
+
+
+        Highcharts.chart({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'line',
+                renderTo: 'line-chart-day1'
+            },
+            title: {
+                text: 'Overall build time change (in seconds) per day'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.y}</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y}',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                name: 'Build time',
+                data: [
+                    <% @time_per_day.each do |time| %>
+                      { name: '<%= time['day'] %>', y: <%= time['value'] %> },
+                    <% end %>
+                ]
+            }]
+        });
+
+        Highcharts.chart({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'line',
+                renderTo: 'line-chart-day2'
+            },
+            title: {
+                text: 'Overall builds count change per day'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.y}</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y}',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                name: 'Builds count',
+                data: [
+                    <% @builds_per_day.each do |data| %>
+                      { name: '<%= data['day'] %>', y: <%= data['value'] %> },
+                    <% end %>
+                ]
+            }]
+        });
+
+        Highcharts.chart({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'line',
+                renderTo: 'line-chart-all1'
+            },
+            title: {
+                text: 'Overall build time growth (in seconds)'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.y}</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y}',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                name: 'Build time',
+                data: [
+                    <% @times.each do |time| %>
+                      { name: '<%= time['day'] %>', y: <%= time['value'] %> },
+                    <% end %>
+                ]
+            }]
+        });
+
+        Highcharts.chart({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'line',
+                renderTo: 'line-chart-all2'
+            },
+            title: {
+                text: 'Overall builds count growth'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.y}</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y}',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                name: 'Builds count',
+                data: [
+                    <% @builds.each do |data| %>
+                      { name: '<%= data['day'] %>', y: <%= data['value'] %> },
+                    <% end %>
+                ]
+            }]
+        }); 
+    });
+  </script>
+</head>
+<body>
+  <div style="max-width: 900px; min-width: 600px; height: 20px; margin: 0 auto">
+      <h3>Summary: <%= @summary %></h3>
+  </div>
+  <div id="pie-chart" style="max-width: 900px; min-width: 600px; height: 600px; margin: 0 auto"></div>
+  <div id="line-chart-day1" style="max-width: 600px; min-width: 400px; height: 400px; margin: 0 auto"></div>
+  <div id="line-chart-day2" style="max-width: 600px; min-width: 400px; height: 400px; margin: 0 auto"></div>
+  <div id="line-chart-all1" style="max-width: 600px; min-width: 400px; height: 400px; margin: 0 auto"></div>
+  <div id="line-chart-all2" style="max-width: 600px; min-width: 400px; height: 400px; margin: 0 auto"></div>
+</body>
+</html>

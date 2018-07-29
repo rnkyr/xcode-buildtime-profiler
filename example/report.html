@@ -1,0 +1,356 @@
+<html>
+<head>
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script type="text/javascript">
+    $(function () {
+        Highcharts.setOptions({
+          colors: Highcharts.map(Highcharts.getOptions().colors, function (color) {
+              return {
+                  radialGradient: { cx: 0.5, cy: 0.3, r: 0.7 },
+                  stops: [ [0, color], [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] ]
+              };
+          })
+        });
+        Highcharts.chart({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie',
+                renderTo: 'pie-chart'
+            },
+            title: {
+                text: 'Build time per target'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                name: 'Share',
+                data: [
+                    
+                      { name: 'Kingfisher', y: 256 },
+                    
+                      { name: 'Pods-MyView', y: 50 },
+                    
+                      { name: 'RxCocoa', y: 326 },
+                    
+                      { name: 'UIScrollView-InfiniteScroll', y: 86 },
+                    
+                      { name: 'Alamofire', y: 324 },
+                    
+                      { name: 'Common', y: 536 },
+                    
+                      { name: 'MyProject', y: 5859 },
+                    
+                      { name: 'RxSwift', y: 429 },
+                    
+                      { name: 'APIClient', y: 118 },
+                    
+                      { name: 'MyView', y: 683 },
+                    
+                      { name: 'FacebookCore', y: 55 },
+                    
+                      { name: 'Bolts', y: 97 },
+                    
+                      { name: 'AwesomeFramework', y: 164 },
+                    
+                      { name: 'Pods-MyProject', y: 22 },
+                    
+                      { name: 'SwinjectAutoregistration', y: 289 },
+                    
+                      { name: 'RxDataSources', y: 125 },
+                    
+                      { name: 'SVProgressHUD', y: 128 },
+                    
+                      { name: 'Pods-Common', y: 48 },
+                    
+                      { name: 'Swinject', y: 150 },
+                    
+                      { name: 'Differentiator', y: 156 },
+                    
+                      { name: 'FBSDKLoginKit', y: 143 },
+                    
+                      { name: 'Locksmith', y: 1 },
+                    
+                      { name: 'FacebookLogin', y: 81 },
+                    
+                      { name: 'Bolts-Swift', y: 183 },
+                    
+                      { name: 'SimpleExif', y: 59 },
+                    
+                      { name: 'Pods-Core', y: 51 },
+                    
+                      { name: 'Core', y: 660 },
+                    
+                      { name: 'FBSDKCoreKit', y: 207 },
+                    
+                      { name: 'BuildInfo', y: 116 },
+                    
+                      { name: 'DBClient', y: 149 },
+                    
+                ]
+            }]
+        });
+
+
+        Highcharts.chart({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'line',
+                renderTo: 'line-chart-day1'
+            },
+            title: {
+                text: 'Overall build time change (in seconds) per day'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.y}</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y}',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                name: 'Build time',
+                data: [
+                    
+                      { name: '17/07/18', y: 2 },
+                    
+                      { name: '18/07/18', y: 411 },
+                    
+                      { name: '19/07/18', y: 1047 },
+                    
+                      { name: '20/07/18', y: 1600 },
+                    
+                      { name: '21/07/18', y: 698 },
+                    
+                      { name: '22/07/18', y: 525 },
+                    
+                      { name: '23/07/18', y: 1405 },
+                    
+                      { name: '24/07/18', y: 1023 },
+                    
+                      { name: '25/07/18', y: 1487 },
+                    
+                      { name: '26/07/18', y: 2598 },
+                    
+                      { name: '27/07/18', y: 755 },
+                    
+                ]
+            }]
+        });
+
+        Highcharts.chart({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'line',
+                renderTo: 'line-chart-day2'
+            },
+            title: {
+                text: 'Overall builds count change per day'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.y}</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y}',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                name: 'Builds count',
+                data: [
+                    
+                      { name: '17/07/18', y: 1 },
+                    
+                      { name: '18/07/18', y: 29 },
+                    
+                      { name: '19/07/18', y: 57 },
+                    
+                      { name: '20/07/18', y: 49 },
+                    
+                      { name: '21/07/18', y: 26 },
+                    
+                      { name: '22/07/18', y: 15 },
+                    
+                      { name: '23/07/18', y: 91 },
+                    
+                      { name: '24/07/18', y: 65 },
+                    
+                      { name: '25/07/18', y: 73 },
+                    
+                      { name: '26/07/18', y: 65 },
+                    
+                      { name: '27/07/18', y: 12 },
+                    
+                ]
+            }]
+        });
+
+        Highcharts.chart({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'line',
+                renderTo: 'line-chart-all1'
+            },
+            title: {
+                text: 'Overall build time growth (in seconds)'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.y}</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y}',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                name: 'Build time',
+                data: [
+                    
+                      { name: '17/07/18', y: 2 },
+                    
+                      { name: '18/07/18', y: 413 },
+                    
+                      { name: '19/07/18', y: 1460 },
+                    
+                      { name: '20/07/18', y: 3060 },
+                    
+                      { name: '21/07/18', y: 3758 },
+                    
+                      { name: '22/07/18', y: 4283 },
+                    
+                      { name: '23/07/18', y: 5688 },
+                    
+                      { name: '24/07/18', y: 6711 },
+                    
+                      { name: '25/07/18', y: 8198 },
+                    
+                      { name: '26/07/18', y: 10796 },
+                    
+                      { name: '27/07/18', y: 11551 },
+                    
+                ]
+            }]
+        });
+
+        Highcharts.chart({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'line',
+                renderTo: 'line-chart-all2'
+            },
+            title: {
+                text: 'Overall builds count growth'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.y}</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.y}',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        },
+                        connectorColor: 'silver'
+                    }
+                }
+            },
+            series: [{
+                name: 'Builds count',
+                data: [
+                    
+                      { name: '17/07/18', y: 1 },
+                    
+                      { name: '18/07/18', y: 30 },
+                    
+                      { name: '19/07/18', y: 87 },
+                    
+                      { name: '20/07/18', y: 136 },
+                    
+                      { name: '21/07/18', y: 162 },
+                    
+                      { name: '22/07/18', y: 177 },
+                    
+                      { name: '23/07/18', y: 268 },
+                    
+                      { name: '24/07/18', y: 333 },
+                    
+                      { name: '25/07/18', y: 406 },
+                    
+                      { name: '26/07/18', y: 471 },
+                    
+                      { name: '27/07/18', y: 483 },
+                    
+                ]
+            }]
+        }); 
+    });
+  </script>
+</head>
+<body>
+  <div style="max-width: 900px; min-width: 600px; height: 20px; margin: 0 auto">
+      <h3>Summary: 3h 12m 31s spent starting from 17/07/18 23:41 (483 builds)</h3>
+  </div>
+  <div id="pie-chart" style="max-width: 900px; min-width: 600px; height: 600px; margin: 0 auto"></div>
+  <div id="line-chart-day1" style="max-width: 600px; min-width: 400px; height: 400px; margin: 0 auto"></div>
+  <div id="line-chart-day2" style="max-width: 600px; min-width: 400px; height: 400px; margin: 0 auto"></div>
+  <div id="line-chart-all1" style="max-width: 600px; min-width: 400px; height: 400px; margin: 0 auto"></div>
+  <div id="line-chart-all2" style="max-width: 600px; min-width: 400px; height: 400px; margin: 0 auto"></div>
+</body>
+</html>
