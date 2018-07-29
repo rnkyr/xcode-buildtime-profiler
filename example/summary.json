@@ -1,0 +1,87 @@
+{
+  "summary": "3h 23m 14s spent starting from 17/07/18 23:41 (495 builds)",
+  "last_update": "29/07/18 23:40",
+  "start_date": "17/07/18 23:41",
+  "per_target": {
+    "Kingfisher": 290,
+    "Pods-MyView": 54,
+    "RxCocoa": 360,
+    "UIScrollView-InfiniteScroll": 91,
+    "Alamofire": 366,
+    "Common": 551,
+    "MyProject": 6101,
+    "RxSwift": 484,
+    "APIClient": 126,
+    "MyView": 694,
+    "FacebookCore": 62,
+    "Bolts": 101,
+    "AwesomeFramework": 171,
+    "Pods-MyProject": 23,
+    "SwinjectAutoregistration": 315,
+    "RxDataSources": 135,
+    "SVProgressHUD": 133,
+    "Pods-Common": 52,
+    "Swinject": 163,
+    "Differentiator": 174,
+    "FBSDKLoginKit": 151,
+    "Locksmith": 18,
+    "FacebookLogin": 90,
+    "Bolts-Swift": 193,
+    "SimpleExif": 66,
+    "Pods-Core": 53,
+    "Core": 675,
+    "FBSDKCoreKit": 217,
+    "BuildInfo": 127,
+    "DBClient": 158
+  },
+  "days": {
+    "17/07/18": {
+      "builds": 1,
+      "time": 2
+    },
+    "18/07/18": {
+      "builds": 30,
+      "time": 413
+    },
+    "19/07/18": {
+      "builds": 87,
+      "time": 1460
+    },
+    "20/07/18": {
+      "builds": 136,
+      "time": 3060
+    },
+    "21/07/18": {
+      "builds": 162,
+      "time": 3758
+    },
+    "22/07/18": {
+      "builds": 177,
+      "time": 4283
+    },
+    "23/07/18": {
+      "builds": 268,
+      "time": 5688
+    },
+    "24/07/18": {
+      "builds": 333,
+      "time": 6711
+    },
+    "25/07/18": {
+      "builds": 406,
+      "time": 8198
+    },
+    "26/07/18": {
+      "builds": 471,
+      "time": 10796
+    },
+    "27/07/18": {
+      "builds": 493,
+      "time": 12058
+    },
+    "29/07/18": {
+      "builds": 495,
+      "time": 12194
+    }
+  }
+}

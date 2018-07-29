@@ -26,3 +26,4 @@ To clean up your project from generated phases run `ruby buildtime_profiler_path
 
 [An example of generated report](example/report.html)
 
+[An example of generated summary file](example/summary.json)
