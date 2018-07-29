@@ -3,6 +3,8 @@ A bunch of scripts that creates a report with a summary of time spent on buildin
 
 With the help of these scripts, you can easily profile how much time you spend building your project during the day.
 
+![Report example](example/report_html.png)
+
 ### Usage
 
 First, you need to install dependency gem by running `sudo gem install terminal-notifier`. This command will install gem [terminal-notifier](https://github.com/julienXX/terminal-notifier) which required to notify you each time you build your project and provide some summary.
