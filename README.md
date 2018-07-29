@@ -24,6 +24,6 @@ To clean up your project from generated phases run `ruby buildtime_profiler_path
 
 [An example of notification](example/screenshot.png)
 
-[An example of generated report](example/report.html)
+[An example of generated report](http://htmlpreview.github.io/?https://github.com/rnkyr/xcode-buildtime-profiler/blob/master/example/report.html)
 
 [An example of generated summary file](example/summary.json)
